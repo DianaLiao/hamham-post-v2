@@ -1,0 +1,15 @@
+<p><%if(flash[:errors])%>
+  <% flash[:errors].each do |e| %>
+    <%= e  %>
+  <% end %>
+<% end %>
+</p>
+
+<p><%= form_for @new_msg do |f| %>
+    <%= f.label "Message" %>
+    <%= f.text_area :content %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.hidden_field :board_id, value: @board.id %>
+    <p><br><%= f.submit "Post Message" %></p>
+  <% end %>
+</p>

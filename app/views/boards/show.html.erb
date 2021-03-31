@@ -1,0 +1,33 @@
+<p>
+
+  <strong>Board:</strong>
+  <%= @board.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @board.desc %>
+</p>
+<a href="#newest">Jump to newest messages</a>
+
+
+<%= render "shared/message" %>
+
+<% @messages.each do |message| %>
+    <% if message.user.id == current_user.id %>
+      <div class = "right-message">
+        <div class = "self-message" >
+    <% else %>
+      <div class = "left-message">
+        <div class = "other-message">
+    <% end %>
+
+
+          <strong><%= link_to message.user.first_name, user_path(message.user) %></strong> (<%= message.created_at.localtime.strftime("%m/%d/%Y at %I:%M%p") %>):<br>
+          <%= message.content %>
+        </div>
+      </div>
+<% end %>
+<a name="newest"></a>
+
+<%= render "shared/message" %>

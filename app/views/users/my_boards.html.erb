@@ -1,0 +1,21 @@
+<h1>My Boards</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Desc</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user_boards.each do |board| %>
+      <tr>
+        <td><%= link_to board.name, board_path(board) %></td>
+        <td><%= board.desc %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

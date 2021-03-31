@@ -1,0 +1,21 @@
+<h1>Welcome, <%= @user.first_name %>!</h1>
+<% if @user %>
+Unread boards:
+<% if(!@unseen_boards.empty?) %>
+  <ul>
+    <%@unseen_boards.each do |board| %>
+      <li> <%= link_to board.name, board_path(board.id) %> </li>
+    <% end %>
+  </ul>
+<% else %>
+  None!<br>
+<% end %>
+<% end %>
+Where would you like to go?
+<ul>
+  <li><%= link_to "My Boards", "/users/my_boards" %> </li>
+  <li><%= link_to "All Users", users_path %></li>
+  <li>Profile</li>
+  <li>Unread Messages</li>
+  <li><%= link_to "All Boards", boards_path %></li>
+</ul>
