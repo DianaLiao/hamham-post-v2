@@ -6,10 +6,10 @@
 </p>
 
 <p><%= form_for @new_msg do |f| %>
-    <%= f.label "Message" %>
-    <%= f.text_area :content %>
+    <%= f.label "Message" %><br>
+    <%= f.text_area :content %><br>
     <%= f.hidden_field :user_id, value: current_user.id %>
     <%= f.hidden_field :board_id, value: @board.id %>
-    <p><br><%= f.submit "Post Message" %></p>
+    <%= f.submit "Post Message" %>
   <% end %>
 </p>

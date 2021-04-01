@@ -21,6 +21,6 @@ class WelcomeController < ApplicationController
         end
       end
     end
-
+    @unseen_boards.uniq!
   end
 end

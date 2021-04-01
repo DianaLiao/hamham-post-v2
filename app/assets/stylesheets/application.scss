@@ -36,7 +36,7 @@
     padding-top: 10px;
     padding-bottom: 10px;
     width: 90%;
-
+    
   }
   
   .right-message{
@@ -52,6 +52,8 @@
     width: 75%;
     border-radius: 25px 25px 25px 5px;
     padding: 10px;
+    color: white;
+    text-decoration: none;
   }
 
   .self-message {
@@ -60,6 +62,12 @@
     border-radius: 25px 25px 5px 25px;
     padding: 10px;
     text-align: right;
+    color: white;
+  }
+
+  .other-message a, .self-message a{
+    text-decoration: none;
+    color: #836ed4;
   }
 
   .top-nav {
@@ -70,6 +78,7 @@
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
+    flex-wrap: wrap;
     list-style-type: none;
     margin: 5px;
     padding: 5px;
@@ -93,5 +102,37 @@
   /* Change the link color to #111 (black) on hover */
  .top-nav li a:hover {
     background-color: #111;
+  }
+
+  /* style for the area under the header */
+  .sub-body{
+    background-color: rgb(221, 219, 219);
+    padding: 0px 15px;
+  }
+
+  /* style for the button to chat on the Users index list */
+  .button-to{
+
+  }
+  .chat-button{
+    border-radius: 40px;
+  }
+  .chat-button:hover {
+    background-color: #4CAF50; 
+    color: white;
+  }
+
+  /* style all marquee images...right now just Stanley */
+  marquee {
+    height:180px;
+  }
+  
+  marquee img {
+    overflow: hidden;
+    height:240px;
+  }
+
+  marquee span {
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   }
   

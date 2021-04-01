@@ -5,7 +5,7 @@ class MessagesController < ApplicationController
     @message = Message.new(msg_params)
     if(@message.valid?)
       @message.save
-      redirect_to board_path(msg_params[:board_id])
+      redirect_to board_path(msg_params[:board_id], anchor:"newest")
     else
       flash[:errors] = @message.errors.full_messages
       redirect_to board_path(msg_params[:board_id])

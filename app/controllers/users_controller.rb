@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[ show edit update destroy my_boards]
+  before_action :set_user, only: %i[ show edit update]
 
   # GET /users or /users.json
   def index
@@ -58,13 +58,14 @@ class UsersController < ApplicationController
 
 
   def my_boards
-    @user_boards = @user.boards
+    @user = current_user
+    @user_boards = @user.boards.uniq
   end
 
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_user
-    @user = current_user
+    @user = User.find(params[:id])
   end
 
   # Only allow a list of trusted parameters through.

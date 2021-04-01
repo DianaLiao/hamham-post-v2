@@ -17,26 +17,34 @@
 
   <body>
     <header>
-      <h1 class = "site-title">Ham-Ham <br> Post</h1>
+      <h1 class = "site-title">Ham-Ham Post</h1>
+      <marquee behavior="scroll" direction="right">
+        <span>THICC</span><%=image_tag("stanley.jpg")%>
+      </marquee>
     </header>
     <nav class="top-nav">
       <ul>
+        <li><%= link_to "Welcome", root_path %></a></li>
         <li><%= link_to "Boards", boards_path %></li>
         <li><%= link_to "Users", users_path %></li>
-        <li><% if user_signed_in? %>
-              <%= link_to("Sign Out", destroy_user_session_path, :method => 'delete') %>
+        <% if user_signed_in? %>
+              <li><a href="../users/my_boards">My Boards</a></li>
+              <li><%= link_to "Profile", user_path(current_user) %></li>
+              <li><%= link_to("Sign Out", destroy_user_session_path, :method => 'delete') %></li>
             <% else %>
-              <%= link_to("Sign In", new_user_session_path) %>
+              <li><%= link_to("Sign In", new_user_session_path) %></li>
             <% end %></li>
       </ul>
     </nav>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <!-- <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p> -->
 
     <%= content_tag(:div, flash[:error], :id => "flash_error") if flash[:error] %>
     <%= content_tag(:div, flash[:notice], :id => "flash_notice") if flash[:notice] %>
     <%= content_tag(:div, flash[:alert], :id => "flash_alert") if flash[:alert] %>
 
+    <div class = "sub-body">
     <%= yield %>
+    </div>
   </body>
 </html>
