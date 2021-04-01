@@ -21,53 +21,15 @@
     align-items: center;
     color: #fff;
     text-shadow: #000 0 0 .2em;
-    background: no-repeat url('stanley.jpg');
+    /* background: no-repeat url('stanley.jpg'); */
     background-size: 240px;
+    background:#c8a5d8;
+ 
   }
 
   .site-title {
-    float:left;
+    padding: 0px 0px 0px 20px;
     font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  }
-
-  .left-message {
-    display: flex;
-    flex-direction: row;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    width: 90%;
-    
-  }
-  
-  .right-message{
-    display: flex;
-    flex-direction: row-reverse;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    width: 85%;
-  }
-
-  .other-message {
-    background-color: #652980;
-    width: 75%;
-    border-radius: 25px 25px 25px 5px;
-    padding: 10px;
-    color: white;
-    text-decoration: none;
-  }
-
-  .self-message {
-    background-color: #e22373;
-    width: 75%;
-    border-radius: 25px 25px 5px 25px;
-    padding: 10px;
-    text-align: right;
-    color: white;
-  }
-
-  .other-message a, .self-message a{
-    text-decoration: none;
-    color: #836ed4;
   }
 
   .top-nav {
@@ -110,22 +72,10 @@
     padding: 0px 15px;
   }
 
-  /* style for the button to chat on the Users index list */
-  .button-to{
-
-  }
-  .chat-button{
-    border-radius: 40px;
-  }
-  .chat-button:hover {
-    background-color: #4CAF50; 
-    color: white;
-  }
-
   /* style all marquee images...right now just Stanley */
   marquee {
     height:180px;
-    visibility:hidden;
+    /* visibility:hidden; */
   }
   
   marquee img {
@@ -137,4 +87,77 @@
     font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     padding: 0px 10px;
   }
+
+
+  /* USERS INDEX */
+  /* style for the button to chat on the Users index list */
+  .button-to{
+
+  }
+  .chat-button{
+    border-radius: 40px;
+  }
+  .chat-button:hover {
+    background-color: #652980; 
+    color:white;
+  }
+
+/* style for all tables (users & board index) */
+table {
+  width: 90%;
+}
+
+tr:nth-child(even){
+  background:#c8a5d8;
+}
+
+tr:hover{
+  background:#BDC3C7;
+    color:#FFFFFF;
+  }
+
   
+/* message styling */
+.left-message {
+  display: flex;
+  flex-direction: row;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 90%;
+  
+}
+
+.right-message{
+  display: flex;
+  flex-direction: row-reverse;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 85%;
+}
+
+.other-message {
+  background-color: #652980;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  border-radius: 25px 25px 25px 5px;
+  padding: 10px 20px;
+  color: white;
+  text-decoration: none;
+}
+
+.self-message {
+  background-color: #e22373;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  border-radius: 25px 25px 5px 25px;
+  padding: 10px 20px;
+  text-align: right;
+  color: white;
+}
+
+.other-message a, .self-message a{
+  text-decoration: none;
+  color: #9b9b9b;
+}
