@@ -18,8 +18,8 @@
   <body>
     <header>
       <h1 class = "site-title">Ham-Ham Post</h1>
-      <marquee behavior="scroll" direction="right">
-        <span>THICC</span><%=image_tag("stanley.jpg")%>
+      <marquee behavior="scroll" direction="right" scrollamount="10">
+        <span><%= session[:marquee]%></span><%=image_tag("stanley.jpg")%>
       </marquee>
     </header>
     <nav class="top-nav">

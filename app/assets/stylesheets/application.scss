@@ -125,6 +125,7 @@
   /* style all marquee images...right now just Stanley */
   marquee {
     height:180px;
+    visibility:hidden;
   }
   
   marquee img {
@@ -134,5 +135,6 @@
 
   marquee span {
     font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    padding: 0px 10px;
   }
   

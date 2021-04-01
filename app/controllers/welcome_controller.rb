@@ -23,4 +23,10 @@ class WelcomeController < ApplicationController
     end
     @unseen_boards.uniq!
   end
+
+  def set_marquee
+    byebug
+    session[:marquee] = params[]
+  end
+
 end

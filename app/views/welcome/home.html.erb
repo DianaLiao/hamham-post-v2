@@ -13,6 +13,11 @@ Unread boards:
 <% end %>
 <% end %>
 <strong>What other welcome stuff can go here??</strong><br>
+<%= form_with url: "/welcome/marquee", method: :post do |f| %>
+  <%= f.label "Set new HamHam vibe (currently #{session[:marquee]})" %>
+  <%= %>
+<% end %>
+<!-- % '/welcome/marquee' button_to "Chat", {:controller => "welcome", :action => "set_marquee"}, method: :post %> -->
 Where would you like to go?
 <ul>
   <li><%= link_to "My Boards", "/users/my_boards" %> </li>
