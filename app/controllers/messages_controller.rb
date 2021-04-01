@@ -13,7 +13,17 @@ class MessagesController < ApplicationController
 
   end
 
+  def destroy
+    set_msg
+    @message.destroy
+    redirect_back(fallback_location: root_path)
+  end
+
   private
+
+  def set_msg
+    @message = Message.find(params[:id])
+  end
 
   def msg_params
     params.require(:message).permit(:content, :user_id, :board_id)

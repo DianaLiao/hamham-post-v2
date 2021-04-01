@@ -19,6 +19,6 @@ Unread boards:
   <%= f.submit %>
 <% end %>
 <hr>
-<% if current_user.personal_board %>
+<% if user_signed_in? && current_user.personal_board %>
 Head to your <%= link_to "positive vibe space", board_path(current_user.personal_board) %>
 <% end %>

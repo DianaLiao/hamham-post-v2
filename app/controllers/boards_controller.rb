@@ -8,8 +8,6 @@ class BoardsController < ApplicationController
 
   # GET /boards/1 or /boards/1.json
   def show
-    byebug
-
     @messages = @board.messages
     @is_member = @board.members.include?(current_user)
     @new_msg = Message.new

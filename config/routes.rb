@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users 
+  devise_scope :user do
+    get '/users/sign_out' => 'devise/sessions#destroy'
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   get 'welcome/home'
@@ -7,6 +10,7 @@ Rails.application.routes.draw do
 
   get "/users/my_boards", to: "users#my_boards"
   
+  get "/messages/:id", to: "messages#destroy", as: "delete_message"
   resources :messages
   resources :boards
   resources :users
