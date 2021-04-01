@@ -4,7 +4,16 @@
   <% @users.each do |user| %>
   <tr>
     <td><%= link_to user.full_name, user_path(user) %></td>
-    <td><%= button_to "Chat", {:controller => "boards", :action => "user_convo", board:{:user_id => session[:user_id], :other_user_id => user.id},}, method: :post, :class => "chat-button" %></td>
+    <td><%= button_to "Chat", {:controller => "boards", :action => "user_convo", board:{:user_id => current_user.id, :other_user_id => user.id},}, method: :post, :class => "chat-button" %></td>
+    <td>
+      <%= form_with url: "/boards/personal", method: :post do |f| %>
+        <%= f.label "Send Positive Vibes Anonymously" %><br>
+        <%= f.text_area :content %><br>
+        <%= f.hidden_field :user_id, value: user.id %>
+        <%= f.hidden_field :sender_id, value: current_user.id %>
+        <%= f.submit "To Ham Post!" %>
+      <% end %>
+    </td>
   </tr>
   <% end %>
 </table>

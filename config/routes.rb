@@ -14,5 +14,7 @@ Rails.application.routes.draw do
   resources :memberships
 
   post "/user_board", to: "boards#user_convo"
+  post "/welcome/marquee", to: "welcome#set_marquee"
+  post "/boards/personal", to: "boards#positive_message"
 
 end

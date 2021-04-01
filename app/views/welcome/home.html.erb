@@ -14,15 +14,11 @@ Unread boards:
 <% end %>
 <strong>What other welcome stuff can go here??</strong><br>
 <%= form_with url: "/welcome/marquee", method: :post do |f| %>
-  <%= f.label "Set new HamHam vibe (currently #{session[:marquee]})" %>
-  <%= %>
+  <%= f.label "Set new HamHam vibe (currently: #{session[:marquee]})" %>
+  <%= f.text_field :marquee %>
+  <%= f.submit %>
 <% end %>
-<!-- % '/welcome/marquee' button_to "Chat", {:controller => "welcome", :action => "set_marquee"}, method: :post %> -->
-Where would you like to go?
-<ul>
-  <li><%= link_to "My Boards", "/users/my_boards" %> </li>
-  <li><%= link_to "All Users", users_path %></li>
-  <li>Profile</li>
-  <li>Unread Messages</li>
-  <li><%= link_to "All Boards", boards_path %></li>
-</ul>
+<hr>
+<% if current_user.personal_board %>
+Head to your <%= link_to "positive vibe space", board_path(current_user.personal_board) %>
+<% end %>

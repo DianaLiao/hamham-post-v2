@@ -45,8 +45,12 @@
         <div class = "other-message">
     <% end %>
 
+          <% if @board.id == current_user.personal_board.id %>
+            <strong>A fellow hamstar</strong> (<%= message.created_at.localtime.strftime("%m/%d/%Y at %I:%M%p") %>):<br>
+          <% else%>
 
           <strong><%= link_to message.user.first_name, user_path(message.user) %></strong> (<%= message.created_at.localtime.strftime("%m/%d/%Y at %I:%M%p") %>):<br>
+          <% end %>
           <%= message.content %>
         </div>
       </div>

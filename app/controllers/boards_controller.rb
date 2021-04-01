@@ -8,9 +8,10 @@ class BoardsController < ApplicationController
 
   # GET /boards/1 or /boards/1.json
   def show
+    byebug
 
-    @is_member = @board.members.include?(current_user)
     @messages = @board.messages
+    @is_member = @board.members.include?(current_user)
     @new_msg = Message.new
     @membership = Membership.new
 
@@ -20,6 +21,7 @@ class BoardsController < ApplicationController
       #find or create seen message
       SeenMessage.find_or_create_by(message_id: message.id, user_id: session[:user_id])
     end
+
     a = params.to_unsafe_hash
     if(a[:msg])
       @first_unread = Message.find(a[:msg])
@@ -99,6 +101,31 @@ class BoardsController < ApplicationController
       
       redirect_to board_path(new_board)
     end
+  end
+
+  def positive_message
+    # accept params for recipient user_id, message
+    info = params.permit(:content, :user_id, :sender_id)
+    msg_content = info[:content]
+    recipient_id = info[:user_id]
+    recipient = User.find(recipient_id)
+    sender_id = info[:sender_id]
+
+    # attempt to find a board with recipient as sole member
+    positive_board = recipient.personal_board
+
+    # if no board found, create board & membership
+    if !positive_board
+      positive_board = Board.create(name:"Positive Messages for #{recipient.first_name}!", desc: "Anonymous lovvvve", personal:true, public:false, listed:false)
+      positive_board.members << recipient
+    end
+
+    # create actual message
+    Message.create(user_id:sender_id, board_id:positive_board.id, content: msg_content)
+ 
+    # redirect to users index
+    redirect_to users_path
+    flash[:notice] = "Thanks for sending good vibes!"
 
   end
 

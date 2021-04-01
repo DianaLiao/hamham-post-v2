@@ -25,8 +25,8 @@ class WelcomeController < ApplicationController
   end
 
   def set_marquee
-    byebug
-    session[:marquee] = params[]
+    session[:marquee] = params.require(:marquee)
+    redirect_to root_path
   end
 
 end
