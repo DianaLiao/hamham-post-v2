@@ -9,8 +9,10 @@ class BoardsController < ApplicationController
   # GET /boards/1 or /boards/1.json
   def show
 
+    @is_member = @board.members.include?(current_user)
     @messages = @board.messages
     @new_msg = Message.new
+    @membership = Membership.new
 
     #go through boards's messages
     @messages.each do |message|

@@ -8,6 +8,29 @@
   <strong>Description:</strong>
   <%= @board.desc %>
 </p>
+
+<!-- Button for user to sub to this board -->
+<p>
+<% if(!@is_member) %>
+<%= form_for @membership do |f| %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.hidden_field :board_id, value: @board.id %>
+  <%= f.submit "Subscribe" %>
+<% end %>
+
+<% else %>
+
+<%= form_for @membership, method: "delete" do |f| %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.hidden_field :board_id, value: @board.id %>
+  <%= f.submit "Unsubscribe" %>
+<% end %>
+<% end %>
+</p>
+
+
+
+
 <a href="#newest">Jump to last message</a>
 
 

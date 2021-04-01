@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   resources :messages
   resources :boards
   resources :users
+  delete "/memberships", to: "memberships#delete"
+  resources :memberships
 
   post "/user_board", to: "boards#user_convo"
+
 end
