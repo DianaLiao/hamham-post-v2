@@ -78,7 +78,7 @@
   }
 
   .sub-body h1 {
-    font-family: revert;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     padding: 10px 0px 5px 25px;
   }
 
@@ -128,7 +128,12 @@ table a:hover {
   color: #652980;
 }
 
-td {
+th{
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: large;
+}
+
+td, th {
   padding: 10px;
 }
 
@@ -228,4 +233,15 @@ a.template-link{
   background-color:#652980 ;
   line-height: 20px;
   margin: 5px 5px 5px 25px;
+}
+
+img.profile-photo {
+  max-height: 300px;
+  max-width: 300px;
+  margin: 10px 0px;
+  border-radius: 15px;
+}
+
+img.msg-thumbnail {
+  height: 1em;
 }

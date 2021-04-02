@@ -11,6 +11,8 @@ class User < ApplicationRecord
 
   has_many  :seen_messages
 
+  has_one_attached :profile_picture
+
 
   def full_name
     "#{first_name} #{last_name}"

@@ -1,3 +1,7 @@
+<% if @user.profile_picture.attached? %> 
+  <img src="<%= url_for(@user.profile_picture)%>" class="profile-photo">
+<% end %>
+
 <p>
   <strong>First name:</strong>
   <%= @user.first_name %>
