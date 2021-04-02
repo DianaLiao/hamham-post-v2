@@ -245,3 +245,74 @@ img.profile-photo {
 img.msg-thumbnail {
   height: 1em;
 }
+
+/* users index stuff */
+.user-index-grid {
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  // display: grid;
+  // grid-column-gap: 50px;
+  // grid-template-columns: 20% 20% 20% 20% 20%;
+  // grid-template-rows: auto;
+}
+
+.user-index-grid > .profile-item {
+  width: 250px;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  height:auto;
+}
+
+.user-index-grid .photo img {
+  width: 100%;
+  height: auto;
+}
+.user-index-grid .name {
+  margin:10px;
+}
+
+.user-index-grid .name a{
+  font-weight: bold;
+  text-decoration: none;
+  color: black;
+}
+
+.user-index-grid .name a:hover {
+  color: #652980;
+}
+
+.user-index-grid .personal-chat {
+  margin:10px;
+}
+.user-index-grid .ham-chat {
+  display: flex;
+  justify-self: end;
+  margin:10px;
+  align-content: center;
+}
+
+.user-index-grid .ham-chat form {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #008CBA;
+}
+.container:hover .overlay {
+  opacity: 1;
+}

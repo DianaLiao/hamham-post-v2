@@ -1,5 +1,37 @@
 <h1>All the Hams</h1>
-<table>
+
+<div class="user-index-grid">
+  <% @users.each do |user| %>
+    <div class="profile-item">
+      <div class="name">
+        <%= link_to user.full_name, user_path(user) %>
+      </div>
+      <div class="photo">
+        <% if user.profile_picture.attached? %>
+          <%= link_to image_tag(url_for(user.profile_picture)), user_path(user) %>
+        <% else %>
+          <%= link_to image_tag("hamham.jpg"), user_path(user) %>
+        <% end %>
+      </div>
+      <div class="personal-chat">
+        <%= button_to "Chat", {:controller => "boards", :action => "user_convo", board:{:user_id => current_user.id, :other_user_id => user.id},}, method: :post, :class => "chat-button" %>
+      </div>
+      <hr>
+      <div class="ham-chat">
+        <%= form_with url: "/boards/personal", method: :post do |f| %>
+          <%= f.label "Send Positive Vibes Anonymously" %><br>
+          <%= f.text_area :content %><br>
+          <%= f.hidden_field :user_id, value: user.id %>
+          <%= f.hidden_field :sender_id, value: current_user.id %>
+          <%= f.submit "To Ham Post!" %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+
+<!-- <table>
   <tr><th></th><th></th></tr>
   <% @users.each do |user| %>
   <tr>
@@ -16,4 +48,4 @@
     </td>
   </tr>
   <% end %>
-</table>
+</table> -->
