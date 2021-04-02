@@ -6,4 +6,8 @@ class Board < ApplicationRecord
   has_many  :members, through: :memberships, source: :user
 
 
+  def most_recent_message  
+    messages.order('created_at DESC').first
+  end
+
 end

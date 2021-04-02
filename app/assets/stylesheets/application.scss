@@ -60,6 +60,11 @@
     padding: 14px 16px;
     text-decoration: none;
   }
+
+  .flash-hash {
+    text-align:center;
+    font-weight: bold;
+  }
   
   /* Change the link color to #111 (black) on hover */
  .top-nav li a:hover {
@@ -69,7 +74,12 @@
   /* style for the area under the header */
   .sub-body{
     background-color: rgb(221, 219, 219);
-    padding: 0px 15px;
+    padding: 0px 15px 10px 15px;
+  }
+
+  .sub-body h1 {
+    font-family: revert;
+    padding: 10px 0px 5px 25px;
   }
 
   /* style all marquee images...right now just Stanley */
@@ -105,16 +115,36 @@
 /* style for all tables (users & board index) */
 table {
   width: 90%;
+  margin: auto;
 }
 
-tr:nth-child(even){
+table a {
+  text-decoration: none;
+  color: black;
+}
+
+table a:hover {
+  text-decoration: none;
+  color: #652980;
+}
+
+td {
+  padding: 10px;
+}
+
+td.name {
+  font-weight: bold;
+}
+tbody tr:nth-child(even){
   background:#c8a5d8;
 }
 
-tr:hover{
+tbody tr:hover{
   background:#BDC3C7;
-    color:#FFFFFF;
+    color:#652980;
   }
+
+
 
   
 /* message styling */
@@ -160,4 +190,42 @@ tr:hover{
 .other-message a, .self-message a{
   text-decoration: none;
   color: #9b9b9b;
+}
+
+/* Sign-in form */
+
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+}
+
+.form-signin .checkbox {
+  font-weight: 400;
+}
+
+.form-signin .form-floating:focus-within {
+  z-index: 2;
+}
+
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+a.template-link{
+  text-decoration: none;
+  color:white;
+  padding: 5px;
+  background-color:#652980 ;
+  line-height: 20px;
+  margin: 5px 5px 5px 25px;
 }

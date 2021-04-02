@@ -12,13 +12,16 @@ Unread boards:
   None!<br>
 <% end %>
 <% end %>
-<strong>What other welcome stuff can go here??</strong><br>
-<%= form_with url: "/welcome/marquee", method: :post do |f| %>
-  <%= f.label "Set new HamHam vibe (currently: #{session[:marquee]})" %>
-  <%= f.text_field :marquee %>
-  <%= f.submit %>
-<% end %>
-<hr>
-<% if user_signed_in? && current_user.personal_board %>
-Head to your <%= link_to "positive vibe space", board_path(current_user.personal_board) %>
+<% if user_signed_in? %>
+  <%= form_with url: "/welcome/marquee", method: :post do |f| %>
+    <%= f.label "Set new HamHam vibe (currently: #{session[:marquee]})" %>
+    <%= f.text_field :marquee %>
+    <%= f.submit %>
+  <% end %>
+  <hr>
+  <% if current_user.personal_board %>
+  Head to your <%= link_to "positive vibe space", board_path(current_user.personal_board) %>
+  <% end %>
+<% else %>
+  Only 🐹 ⭐️ allowed. Free to register!
 <% end %>

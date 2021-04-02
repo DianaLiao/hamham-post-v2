@@ -3,7 +3,7 @@ class BoardsController < ApplicationController
 
   # GET /boards or /boards.json
   def index
-    @boards = Board.all
+    @boards = Board.where(public:true).order(:name)
   end
 
   # GET /boards/1 or /boards/1.json

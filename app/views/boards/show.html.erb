@@ -46,9 +46,9 @@
     <% end %>
           <!-- if the current user has a personal vibes board and this is it -->
           <% if current_user.personal_board && @board.id == current_user.personal_board.id %>
-            <strong>A fellow hamstar</strong> (<%= message.created_at.localtime.strftime("%m/%d/%Y at %I:%M%p") %>):<br>
+            <strong>A fellow hamstar</strong> (<%= message.readable_date_time %>):<br>
           <% else%>
-            <strong><%= link_to message.user.first_name, user_path(message.user) %></strong> (<%= message.created_at.localtime.strftime("%m/%d/%Y at %I:%M%p") %>):<br>
+            <strong><%= link_to message.user.first_name, user_path(message.user) %></strong> (<%= message.readable_date_time %>):<br>
           <% end %>
           <%= message.content %><br>
           <!-- if this is a personal board or if this is current user's authored message -->

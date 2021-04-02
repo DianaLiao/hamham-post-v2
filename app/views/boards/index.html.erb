@@ -1,20 +1,20 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Boards</h1>
 
 <table>
   <thead>
     <tr>
       <th>Name</th>
-      <th>Desc</th>
+      <th>Description</th>
+      <th>Most Recent Message</th>
     </tr>
   </thead>
 
   <tbody>
     <% @boards.each do |board| %>
       <tr>
-        <td><%= link_to board.name, board_path(board) %></td>
-        <td><%= board.desc %></td>
+        <td class="name"><%= link_to board.name, board_path(board) %></td>
+        <td><%= link_to board.desc, board_path(board) %></td>
+        <td><%= link_to board.most_recent_message.readable_date_time, board_path(board) %>
       </tr>
     <% end %>
   </tbody>
@@ -22,4 +22,4 @@
 
 <br>
 
-<%= link_to 'New Board', new_board_path %>
+<%= link_to 'New Board', new_board_path, :class => "template-link" %>
