@@ -1,24 +1,21 @@
-# README
+# Ham-Ham Post - Message Board App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a Ruby-on-Rails application, built as a Phase 2 project for the Flatiron School Software Engineering Bootcamp. Best viewed in Google Chrome. Core functionality includes:
+* User signup and creation
+* Create message boards with a name and topic
+  * Publicly listed message boards for all users to join
+  * Personal boards for 1-on-1 chats
+  * Personal boards where users can post anonymous (positive!) messages for each other (message vetting not yet implemented)
 
-Things you may want to cover:
+Key extras used:
+* [Devise](https://github.com/heartcombo/devise) gem
+* [Active Storage](https://edgeguides.rubyonrails.org/active_storage_overview.html)
 
-* Ruby version
+### Installation and Set-up
 
-* System dependencies
+* Fork and clone to a local machine
+* Run `$ rails db:migrate` to build the database schema
+* Optional: run `$ rails db:seed` to enter [Faker](https://github.com/faker-ruby/faker) generated dummy data
+* Start the server with `$ rails s`.
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+ 
